@@ -53,8 +53,7 @@ public class Client extends Thread {
 				System.out.println("Responder >");
 			}
 		} catch (Exception e) {
-			System.out.println("Ocorreu uma falha... .. ." + " IOException: "
-					+ e);
+			System.out.println("Ocorreu uma falha... .. ." + " IOException: " + e);
 		}
 	}
 }
