@@ -12,8 +12,8 @@ import java.util.Vector;
 
 public class Server extends Thread {
 
-	public static Vector Clientes;
-	private static ArrayList listaNomes = new ArrayList();
+	public static Vector<PrintStream> Clientes;
+	private static ArrayList<String> listaNomes = new ArrayList<String>();
 	private Socket conexao;
 	private String nomeCliente;
 
@@ -38,7 +38,7 @@ public class Server extends Thread {
 	}
 
 	public static void main(String[] args) {
-		Clientes = new Vector();
+		Clientes = new Vector<PrintStream>();
 		try {
 			ServerSocket server = new ServerSocket(5555);
 			System.out.println("Servidor rodando na porta 5555");
@@ -91,7 +91,7 @@ public class Server extends Thread {
 
 	private void sendToAll(PrintStream saida, String acao, String msg)
 			throws IOException {
-		Enumeration e = Clientes.elements();
+		Enumeration<PrintStream> e = Clientes.elements();
 		while (e.hasMoreElements()) {
 			PrintStream chat = (PrintStream) e.nextElement();
 			if (chat != saida) {
